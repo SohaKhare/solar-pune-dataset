@@ -1,0 +1,32 @@
+[project]
+name = "solar-pune-dataset"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "SohaKhare", email = "sohaajaykhare2006@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "earthengine-api>=1.7.39",
+    "folium>=0.20.0",
+    "geemap>=0.38.3",
+    "geopandas>=1.1.4",
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.2",
+    "osmnx>=2.1.1",
+    "pandas>=3.0.5",
+    "rasterio>=1.5.1",
+    "rasterstats>=0.21.0",
+    "requests>=2.34.2",
+    "scikit-learn>=1.9.0",
+    "shapely>=2.1.2",
+    "streamlit>=1.61.1",
+]
+
+[project.scripts]
+solar-pune-dataset = "solar_pune_dataset:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
