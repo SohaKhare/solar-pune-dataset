@@ -12,3 +12,4 @@ scikit-learn
 matplotlib
 folium
 streamlit
+python-dotenv
