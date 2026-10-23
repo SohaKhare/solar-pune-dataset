@@ -1,0 +1,24 @@
+column_name,data_type,definition,unit,missing_values_present,notes
+building_id,integer,Identifier assigned to a building record during dataset processing,dimensionless,No,Unique within this dataset; not an OSM identifier
+osm_element,string,OpenStreetMap element type used for the feature,category,No,Examples may include way or relation
+osm_id,integer,OpenStreetMap element identifier,dimensionless,No,Use together with osm_element when resolving the source object
+latitude,float,Latitude of the building representative point,decimal degrees,No,WGS 84 geographic coordinates
+longitude,float,Longitude of the building representative point,decimal degrees,No,WGS 84 geographic coordinates
+roof_area_m2,float,Planar area calculated from the mapped OSM building footprint; used as a roof-area proxy,m²,No,Not a direct measurement of usable roof surface; footprint geometry and mapping quality affect the value
+building_type,string,OpenStreetMap building tag or mapped building classification,category,No,Generic values such as 'yes' indicate a building without a more specific type
+building_levels,float,Number of building levels where provided by OSM,levels,Yes,Sparse OSM metadata; numeric conversion may turn malformed values into missing values
+height_m,float,Building height where provided by OSM,m,Yes,Sparse OSM metadata; not inferred for buildings without a value
+roof_shape,string,Roof shape tag where provided by OSM,category,Yes,Highly incomplete optional metadata
+roof_orientation,float,Roof orientation value where provided by OSM,source-dependent,Yes,All values are missing in the current dataset; do not interpret as zero or north-facing
+area_quality_flag,string,Footprint-area review flag,category,No,"Current rule: 'large_building' when roof_area_m2 > 5000; otherwise 'normal'. Large footprints are retained, not automatically considered erroneous"
+elevation_m,float,SRTM-derived elevation sampled at the building representative point,m above sea level,Yes,Terrain/context feature; not roof elevation
+terrain_slope_deg,float,SRTM-derived terrain slope sampled at the building representative point,degrees,Yes,"Terrain slope, not roof pitch"
+terrain_aspect_deg,float,SRTM-derived terrain aspect sampled at the building representative point,degrees,Yes,"Terrain aspect, not roof orientation; circular variable"
+ndvi_2025,float,2025 Sentinel-2 annual-composite NDVI sampled at the building representative point,unitless (-1 to 1),Yes,"Pixel may represent nearby vegetation, pavement, shadow, or another surface rather than the roof itself"
+ghi_kwh_m2_day,float,NASA POWER climatological average daily global horizontal irradiance at the Pune reference coordinate,kWh/m²/day,No,Single representative city-level value repeated for every building; not a building-specific measurement
+dni_kwh_m2_day,float,NASA POWER climatological average daily direct normal irradiance at the Pune reference coordinate,kWh/m²/day,No,Single representative city-level value repeated for every building
+temperature_c,float,NASA POWER climatological air temperature at the Pune reference coordinate,°C,No,Single representative city-level value repeated for every building
+relative_humidity_pct,float,NASA POWER climatological relative humidity at the Pune reference coordinate,%,No,Single representative city-level value repeated for every building
+wind_speed_m_s,float,NASA POWER climatological wind speed at the Pune reference coordinate,m/s,No,Single representative city-level value repeated for every building
+study_area,string,Human-readable study-area label,text,No,"Current value: Pune, Maharashtra, India"
+ndvi_source_year,integer,Calendar year represented by the Sentinel-2 NDVI composite,year,No,Current value: 2025
